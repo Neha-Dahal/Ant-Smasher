@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.container {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  margin: 20px auto;
+  background-color: antiquewhite;
+}
+
+.ant {
+  position: absolute;
+  border-radius: 50%;
+  background: url(ant-image.png);
+  background-size: cover;
+}
+p {
+  color: black;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    width: 350px;
+    height: 350px;
+  }
+}
