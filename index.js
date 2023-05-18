@@ -50,6 +50,16 @@ class AntGame {
         this.ants.splice(antIndex, 1);
         antsKilled++;
         updateScoreboard();
+
+        const blood = document.createElement("div");
+        blood.className = "blood";
+        blood.style.left = ant.x + "px";
+        blood.style.top = ant.y + "px";
+
+        document.querySelector(".container").appendChild(blood);
+        setTimeout(() => {
+          blood.remove();
+        }, 1000);
       }
     }
   }
@@ -132,7 +142,6 @@ class AntGame {
 function updateScoreboard() {
   const scoreBoard = document.getElementById("scoreboard");
   scoreBoard.innerHTML = `Score : ${antsKilled}`;
-  console.log(antsKilled);
 }
 const numAnts = 15;
 const timing = 100;

@@ -21,8 +21,15 @@ body {
 .ant {
   position: absolute;
   border-radius: 50%;
-  background: url(ant-image.png);
+  background: url(./images/ant-image.png);
   background-size: cover;
+}
+.blood {
+  position: absolute;
+  background-image: url(./images/blood.png);
+  background-size: contain;
+  width: 40px;
+  height: 40px;
 }
 p {
   color: black;
