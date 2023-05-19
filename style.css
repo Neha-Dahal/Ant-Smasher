@@ -16,6 +16,10 @@ body {
   position: relative;
   margin: 20px auto;
   background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .ant {
@@ -23,6 +27,7 @@ body {
   border-radius: 50%;
   background: url(./images/ant-image.png);
   background-size: cover;
+  cursor: pointer;
 }
 .blood {
   position: absolute;
@@ -31,8 +36,21 @@ body {
   width: 40px;
   height: 40px;
 }
-p {
-  color: black;
+div {
+  color: darkcyan;
+  font-size: 32px;
+}
+
+.play-again-button {
+  background-color: green;
+  color: white;
+  padding: 18px 24px;
+  border-radius: 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.play-again-button:hover {
+  background-color: darkgreen;
 }
 
 @media only screen and (max-width: 767px) {

@@ -35,6 +35,9 @@ class AntGame {
     antElement.style.width = ant.size + "px";
     antElement.style.height = ant.size + "px";
 
+    const rotation = Math.atan2(ant.dy, ant.dx) * (180 / Math.PI);
+    antElement.style.transform = `rotate(${rotation}deg)`;
+
     antElement.addEventListener("click", () => this.killAnt(ant));
     this.container.appendChild(antElement);
   }
@@ -142,9 +145,30 @@ class AntGame {
 function updateScoreboard() {
   const scoreBoard = document.getElementById("scoreboard");
   scoreBoard.innerHTML = `Score : ${antsKilled}`;
+  if (antsKilled === numAnts) {
+    resetGame();
+  }
 }
-const numAnts = 15;
-const timing = 100;
+function resetGame() {
+  const playAgain = document.createElement("div");
+  playAgain.className = "play-again-button";
+  playAgain.innerHTML = "Play Again";
+  document.querySelector(".container").appendChild(playAgain);
+
+  playAgain.addEventListener("click", () => {
+    antsKilled = 0;
+    const ants = document.querySelectorAll(".ant");
+    ants.forEach((ant) => ant.remove());
+    const blood = document.querySelectorAll(".blood");
+    blood.forEach((bloodElement) => bloodElement.remove());
+    playAgain.remove();
+    updateScoreboard();
+    antGame.init();
+  });
+}
+
+const numAnts = 20;
+const timing = 10;
 let antsKilled = 0;
 const antGame = new AntGame(numAnts);
 antGame.init();
